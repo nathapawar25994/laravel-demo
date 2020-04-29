@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Versique'),
+    'name' => env('APP_NAME', 'On Call Staffing Solutions'),
 
     /*
     |--------------------------------------------------------------------------

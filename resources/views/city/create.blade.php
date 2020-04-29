@@ -55,5 +55,36 @@
 
 @stop
 @section('footer_script_init')
+<script>
+
+
+
+// $('#level_id').on('change', function(e) {
+//                 e.preventDefault();
+//                 var level_id=$(this).find(":selected").val();
+//                 appendOptions(level_id);
+// 			});
+//             function appendOptions(level_id){
+//                 $.ajax({    
+// 							url: '{{ url("members/get_trainer_by_level")}}',
+//                             type: "POST",
+//                             data: {'level_id':level_id}
+// 						})
+// 							.done(function (data) {
+                                
+//                                 var response=JSON.parse(data);
+//                                 $('#trainer_id').find('option').remove().end();
+//                                 for(var i=0;i<response.length;i++){
+//                                     var option = $('<option></option>').text(response[i].name).val(response[i].id);
+//                                     $('#trainer_id').append(option);
+//                                 }
+//                                 $('#trainer_id').show().closest('div').find('.bootstrap-select').hide();
+							
+//                             })
+//             }
+
+</script>
 
 @stop
+
+

@@ -13,7 +13,7 @@
     </style>
 
     <link rel="icon" type="image/png" sizes="16x16" href="{{ URL::asset('assets/login-theme/Login_v16/images/icons/favicon.ico') }}">
-    <title>Versique</title>
+    <title>On Call Staffing Solutions</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ URL::asset('assets/theme/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
     <!-- Menu CSS -->
@@ -72,7 +72,7 @@
                         </b>
                         <!-- Logo text image you can use text also --><span class="hidden-xs">
                             <!-- This is dark logo text<img src="{{ URL::asset('assets/login-theme/Login_v16/images/log.png') }}" alt="home" class="dark-logo" /> -->
-                            <!--This is light logo text--><img src="{{ URL::asset('assets/login-theme/Login_v16/images/Sss.png') }}" alt="home" class="light-logo" />
+                            <!--This is light logo text--><img src="{{ URL::asset('assets/login-theme/Login_v16/images/Sss1.png') }}" alt="home" class="light-logo" />
                         </span> </a>
                 </div>
                 <!-- /Logo -->
