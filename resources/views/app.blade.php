@@ -67,8 +67,8 @@
                     <!-- Logo -->
                     <a class="logo" href="{{ route('dashboard') }}">
                         <!-- Logo icon image, you can use font-icon also --><b>
-                            <!-- This is dark logo icon<img src="{{ URL::asset('assets/login-theme/Login_v16/images/log1.png') }}" alt="home" class="dark-logo" /> -->
-                            <!--This is light logo icon--><img src="{{ URL::asset('assets/login-theme/Login_v16/images/log1.png') }}" alt="home" class="light-logo" style="display: none;"/>
+                            <!-- This is dark logo icon<img src="{{ URL::asset('assets/login-theme/Login_v16/images/fav_icon.png') }}" alt="home" class="dark-logo" /> -->
+                            <!--This is light logo icon--><img src="{{ URL::asset('assets/login-theme/Login_v16/images/fav_icon.png') }}" alt="home" class="light-logo" style="display: none;"/>
                         </b>
                         <!-- Logo text image you can use text also --><span class="hidden-xs">
                             <!-- This is dark logo text<img src="{{ URL::asset('assets/login-theme/Login_v16/images/log.png') }}" alt="home" class="dark-logo" /> -->
