@@ -27,7 +27,6 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">Refered From</th>
-                                    <th class="text-center">Slug</th>
                                     <th class="text-center">Description</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
@@ -36,7 +35,6 @@
                                 @foreach ($refered_from_list as $refered_from)
                                 <tr>
                                     <td class="text-center">{{ $refered_from->name}}</td>
-                                    <td class="text-center">{{ $refered_from->slug}}</td>
                                     <td class="text-center">{{ $refered_from->description}}</td>
                                     <td class="text-center">
                                         <div class="btn-group">
