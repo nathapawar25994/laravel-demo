@@ -22,7 +22,6 @@ class JobCategoryController extends Controller
     {
         $job_category_list = JobCategory::where('status',1)->get();
         $count = $job_category_list->count();
-//print_r($id);die;
         return view('job_category.index', compact('job_category_list', 'count'));
     }
 
@@ -56,14 +55,15 @@ class JobCategoryController extends Controller
     public function store(Request $request)
     {
         //Model Validation
-        // $this->validate($request, ['name' => 'unique:mst_goals,name']);
+        $this->validate($request, ['name' => 'required|unique:job_category,name']);
 
         $job_category = new JobCategory($request->all());
 
         
         $job_category->save();
 
-       // flash()->success('Entities was successfully created');
+    //    flash()->success('Job Category was successfully created');
+
        return redirect(action('JobCategoryController@index'));
        
     }
@@ -80,6 +80,7 @@ class JobCategoryController extends Controller
         $job_category = JobCategory::findOrFail($id);
 
         $job_category->update($request->all());
+
         $job_category->save();
       //  flash()->success('Entities details were successfully updated');
 
@@ -89,7 +90,13 @@ class JobCategoryController extends Controller
 
     public function delete($id)
     {
-        JobCategory::destroy($id);
+        $job_category = JobCategory::findOrFail($id);
+
+        $job_category->status = 0;
+
+        $job_category->update();
+
+        $job_category->save();
 
         return back();
     }

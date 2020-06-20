@@ -159,6 +159,7 @@ Route::group(['prefix' => 'state', 'middleware' => ['auth']], function () {
     Route::get('/{id}/edit', 'StateController@edit');
     Route::post('/{id}/update', 'StateController@update');
     Route::post('/{id}/delete', 'StateController@delete');
+    Route::post('/get_state_list', 'StateController@getStates');
 });
 
 //City
@@ -169,4 +170,17 @@ Route::group(['prefix' => 'city', 'middleware' => ['auth']], function () {
     Route::get('/{id}/edit', 'CityController@edit');
     Route::post('/{id}/update', 'CityController@update');
     Route::post('/{id}/delete', 'CityController@delete');
+    Route::post('/get_city_list', 'CityController@getCity');
+    
+    
+});
+
+//Job
+Route::group(['prefix' => 'job', 'middleware' => ['auth']], function () {
+    Route::get('/', 'JobController@index');
+    Route::get('/create', 'JobController@create');
+    Route::post('/', 'JobController@store');
+    Route::get('/{id}/edit', 'JobController@edit');
+    Route::post('/{id}/update', 'JobController@update');
+    Route::post('/{id}/delete', 'JobController@delete');
 });

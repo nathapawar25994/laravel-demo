@@ -99,7 +99,13 @@ class JobTypeController extends Controller
 
     public function delete($id)
     {
-        JobType::destroy($id);
+        $job_type = JobType::findOrFail($id);
+
+        $job_type->status = 0;
+
+        $job_type->update();
+
+        $job_type->save();
 
         return back();
     }

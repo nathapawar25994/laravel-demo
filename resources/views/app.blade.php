@@ -34,6 +34,8 @@
     <!-- BOOTSTRAP vALIDATION  -->
     <link href="{{ URL::asset('assets/BootstrapValidation/bootstrapValidator.min.css') }}" id="" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+
 
     <!-- <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css"> -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -67,7 +69,7 @@
                     <!-- Logo -->
                     <a class="logo" href="{{ route('dashboard') }}">
                         <!-- Logo icon image, you can use font-icon also --><b>
-                            <!-- This is dark logo icon<img src="{{ URL::asset('assets/login-theme/Login_v16/images/fav_icon.png') }}" alt="home" class="dark-logo" /> -->
+                            <!-- This is dark logo icon<img src="{{ URL::asset('assets/login-theme/Login_v16/images/log1.png') }}" alt="home" class="dark-logo" /> -->
                             <!--This is light logo icon--><img src="{{ URL::asset('assets/login-theme/Login_v16/images/fav_icon.png') }}" alt="home" class="light-logo" style="display: none;"/>
                         </b>
                         <!-- Logo text image you can use text also --><span class="hidden-xs">
@@ -123,6 +125,22 @@
                     <li style="padding: 70px 0 0;">
                         <a href="{{ route('dashboard') }}" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
                     </li>
+
+                    <li>
+                        <a href="#" class="waves-effect dropdown-btn"><i class="fa fa-file fa-fw" aria-hidden="true"></i>Job</a>
+
+                        <ul class="dropdown-container" id="side-menu">
+                            <li>
+                                <a href="{{ action('JobController@index') }}" class="waves-effect">Job List</a>
+                            </li>
+                            <li>
+                                <a href="{{ action('JobController@create') }}" class="waves-effect">Add Job</a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
                     <li>
                         <a href="#" class="waves-effect dropdown-btn"><i class="fa fa-file fa-fw" aria-hidden="true"></i>Job Category</a>
 
@@ -187,7 +205,12 @@
                                 <a href="{{ action('StateController@create') }}" class="waves-effect">Add State</a>
                             </li>
 
-
+                            <li>
+                                <a href="{{ action('CityController@index') }}" class="waves-effect">City List</a>
+                            </li>
+                            <li>
+                                <a href="{{ action('CityController@create') }}" class="waves-effect">Add City</a>
+                            </li>
                         </ul>
 
                     </li>
@@ -261,7 +284,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script> -->
-
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     @yield('footer_scripts')
 
     @yield('footer_script_init')

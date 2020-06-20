@@ -1,4 +1,3 @@
-
 @extends('app')
 
 @section('content')
@@ -57,5 +56,47 @@
 
 @stop
 @section('footer_script_init')
+
+<script>
+    $(document).ready(function() {
+        var country_id = $('#country_id').val();
+        if (country_id != null && country_id != undefined && country_id != "") {
+            appendStateOptions(country_id);
+        }
+    });
+    
+    $(document).on('change', '#country_id', function(e) {
+        e.preventDefault();
+        var country_id = $(this).find(":selected").val();
+        appendStateOptions(country_id);
+    });
+
+    function appendStateOptions(country_id) {
+        $.ajax({
+                url: '{{ url("state/get_state_list")}}',
+                type: "POST",
+                data: {
+                    'country_id': country_id
+                }
+            })
+            .done(function(response_data) {
+
+                var response = response_data['data'];
+                console.log(response);
+
+                $('#state_id').find('option').remove().end();
+
+                var option = $('<option></option>').text("Select State");
+                $('#state_id').append(option);
+
+                for (var i = 0; i < response.length; i++) {
+                    var option = $('<option></option>').text(response[i].name).val(response[i].id);
+                    $('#state_id').append(option);
+                }
+                $('#state_id').show().closest('div').find('.bootstrap-select').hide();
+
+            })
+    }
+</script>
 
 @stop

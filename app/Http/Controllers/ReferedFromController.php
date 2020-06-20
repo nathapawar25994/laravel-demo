@@ -83,7 +83,13 @@ class ReferedFromController extends Controller
 
     public function delete($id)
     {
-        ReferedFrom::destroy($id);
+        $refered_from = ReferedFrom::findOrFail($id);
+
+        $refered_from->status = 0;
+
+        $refered_from->update();
+
+        $refered_from->save();
 
         return back();
     }

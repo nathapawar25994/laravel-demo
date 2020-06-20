@@ -83,7 +83,13 @@ class CountryController extends Controller
 
     public function delete($id)
     {
-        Country::destroy($id);
+        $country = Country::findOrFail($id);
+
+        $country->status = 0;
+
+        $country->update();
+
+        $country->save();
 
         return back();
     }

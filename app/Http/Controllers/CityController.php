@@ -85,8 +85,25 @@ class CityController extends Controller
 
     public function delete($id)
     {
-        City::destroy($id);
+        $city = City::findOrFail($id);
+
+        $city->status = 0;
+        
+        $city->update();
+
+        $city->save();
 
         return back();
+    }
+
+    public function getCity(Request $request)
+    {
+        $cities = City::where('state_id',$request->state_id)->where('status',1)->get();
+
+        if(empty($cities)){
+            $cities = [];
+        }
+        
+        return response()->json(['status'=>'200','data'=>$cities,'message'=>'cities list state wise']);
     }
 }

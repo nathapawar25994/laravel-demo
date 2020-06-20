@@ -83,8 +83,28 @@ class StateController extends Controller
 
     public function delete($id)
     {
-        State::destroy($id);
+        $state = State::findOrFail($id);
+
+        $state->status = 0;
+
+        $state->update();
+
+        $state->save();
 
         return back();
     }
+
+    public function getStates(Request $request)
+    {
+        $states = State::where('country_id',$request->country_id)->where('status',1)->get();
+
+        if(empty($states)){
+            $states = [];
+        }
+        
+        return response()->json(['status'=>'200','data'=>$states,'message'=>'states list country wise']);
+    }
+
+
+
 }
