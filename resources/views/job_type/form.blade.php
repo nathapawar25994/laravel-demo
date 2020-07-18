@@ -7,7 +7,7 @@
     </div>
     <div class="col-sm-6">
         <div class="form-group">
-            {!! Form::label('description','Category Description') !!}
+            {!! Form::label('description','Type Description') !!}
             {!! Form::textarea('description',null,['class'=>'form-control', 'id' => 'description']) !!}
         </div>
     </div>
