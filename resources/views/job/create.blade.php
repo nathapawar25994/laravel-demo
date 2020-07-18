@@ -80,6 +80,22 @@ $(".datepicker-default").datepicker({
         if(state_id != null && state_id != undefined && state_id != "" ){
             appendCityOptions(state_id);
         }
+
+        var is_range_value = $("#is_range").find(":selected").val();
+        if(is_range_value == 1){
+            $(".salary_value_single").hide();
+            $("#value").val("0");
+            $(".salary_value_range").show();
+
+        }else{
+
+            $(".salary_value_range").hide();
+            $("#min_value").val("0");
+            $("#max_value").val("0");
+            $(".salary_value_single").show();
+
+        }
+
     });
 
     $(document).on('change', '#country_id', function(e) {
@@ -144,7 +160,24 @@ $(".datepicker-default").datepicker({
 
             })
     }
+    $(document).on('change', '#is_range', function(e) {
+        e.preventDefault();
+        var is_range_value = $(this).find(":selected").val();
+        if(is_range_value == 1){
+            $(".salary_value_single").hide();
+            $("#value").val("");
+            $(".salary_value_range").show();
 
+        }else{
+
+            $(".salary_value_range").hide();
+            $("#min_value").val("");
+            $("#max_value").val("");
+            $(".salary_value_single").show();
+
+        }
+        
+    });
 </script>
 
 @stop

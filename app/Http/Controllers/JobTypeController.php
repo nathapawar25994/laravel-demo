@@ -60,7 +60,7 @@ class JobTypeController extends Controller
         // replace non letter or digits by -
         $slug = preg_replace('~[^\pL\d]+~u', '_', $slug);
         // lowercase
-        $slug = strtolower($slug);
+        $slug = strtoupper($slug);
         $job_type->slug = $slug;
 
         $job_type->save();
@@ -88,7 +88,7 @@ class JobTypeController extends Controller
         // replace non letter or digits by -
         $slug = preg_replace('~[^\pL\d]+~u', '_', $slug);
         // lowercase
-        $slug = strtolower($slug);
+        $slug = strtoupper($slug);
         $job_type->slug = $slug;
 
         $job_type->save();

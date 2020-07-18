@@ -5,16 +5,26 @@ namespace App\Http\Controllers;
 use Auth;
 use App\City;
 use App\Job;
-use App\JobBaseSalary;
 use Illuminate\Http\Request;
 
-class JobController extends Controller
+class JobApplicationController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
 
+    public function dashboard()
+    {
+
+        $job_list = Job::where('status', 1)->paginate(10);
+        $count = $job_list->count();
+
+        // return view('job.index', compact('job_list', 'count'));
+
+        return view('dashboard', compact('job_list', 'count'));
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -65,11 +75,7 @@ class JobController extends Controller
             'country_id' => 'required',
             'state_id' => 'required',
             'city_id' => 'required',
-            'total_vacancy' => 'required|numeric|min:1',
-            'hiring_organization_id' => 'required',
-            // 'value' => 'numeric|min:1',
-            // 'min_value' => 'numeric|min:1',
-            // 'max_value' => 'numeric|gt:min_value',
+            'total_vacancy' => 'required|numeric|min:1'
             ]);
 
         $job = new Job($request->all());
@@ -84,24 +90,6 @@ class JobController extends Controller
 
         $job->save();
 
-        $job_id = $job->id;
-
-        $job_base_salary = new JobBaseSalary();
-        $job_base_salary->job_id = $job_id;
-        $job_base_salary->currency_id = $request->currency_id;
-        $job_base_salary->salary_period_id = $request->salary_period_id;
-        $job_base_salary->is_range = $request->is_range;
-        $job_base_salary->value = $request->value;
-        $job_base_salary->min_value = $request->min_value;
-        $job_base_salary->max_value = $request->max_value;
-        $job_base_salary->save();
-
-        $job_update = Job::findOrFail($job_id);
-        $job_update->job_base_salary_id = $job_base_salary->id;
-        $job_update->update();
-        $job_update->save();
-
-
         // flash()->success('Job type was successfully created');
 
         return redirect(action('JobController@index'));
@@ -110,15 +98,6 @@ class JobController extends Controller
     public function edit($id)
     {
         $job = Job::findOrFail($id);
-
-        $job_base_salary = JobBaseSalary::where('job_id', '=', $id)->first();
-
-        $job->is_range = $job_base_salary->is_range;
-        $job->value = $job_base_salary->value;
-        $job->currency_id = $job_base_salary->currency_id;
-        $job->salary_period_id = $job_base_salary->salary_period_id;
-        $job->min_value = $job_base_salary->min_value;
-        $job->max_value = $job_base_salary->max_value;
 
         $country_id = $job->country_id;
         $state_id = $job->state_id;
@@ -155,19 +134,6 @@ class JobController extends Controller
         $job->slug = $slug;
 
         $job->save();
-
-        $job_base_salary = JobBaseSalary::where('job_id', '=', $id)->first();
-
-        $job_base_salary->is_range = $request->is_range;
-        $job_base_salary->value = $request->value;
-        $job_base_salary->currency_id = $request->currency_id;
-        $job_base_salary->salary_period_id = $request->salary_period_id;
-        $job_base_salary->min_value = $request->min_value;
-        $job_base_salary->max_value = $request->max_value;
-
-        $job->update();
-        $job->save();
-
         //  flash()->success('Entities details were successfully updated');
 
         return redirect(action('JobController@index'));

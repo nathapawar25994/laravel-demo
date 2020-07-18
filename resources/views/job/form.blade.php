@@ -32,19 +32,18 @@
 
 <div class="row">
     <div class="col-sm-6">
+        <div class="form-group">
+            <?php $hiring_organization = App\HiringOrganization::where('status', 1)->pluck('name', 'id'); ?>
+            {!! Form::label('Hiring Organization') !!}
+            {!! Form::select('hiring_organization_id',$hiring_organization,null,['class'=>'form-control show-tick', 'id' => 'hiring_organization_id']) !!}
+        </div>
+    </div>
+    <div class="col-sm-6">
         <div class="form-group datepicker">
             {!! Form::label('last_date_to_submit','Last Date To Submit') !!}
             {!! Form::text('last_date_to_submit',null,['class'=>'form-control datepicker-default', 'id' => 'last_date_to_submit']) !!}
         </div>
     </div>
-
-    <div class="col-sm-6">
-        <div class="form-group datepicker">
-            {!! Form::label('total_vacancy','Total Vacancy Available') !!}
-            {!! Form::text('total_vacancy',null,['class'=>'form-control', 'id' => 'total_vacancy']) !!}
-        </div>
-    </div>
-
 </div>
 
 <div class="row">
@@ -57,11 +56,11 @@
     </div>
     <div class="col-sm-6">
         <div class="form-group">
-            <?php 
-            if(isset($country_id) && !empty($country_id)){
+            <?php
+            if (isset($country_id) && !empty($country_id)) {
 
                 $state = App\State::where('status', 1)->where('country_id', $country_id)->pluck('name', 'id');
-            }else{
+            } else {
                 $state = [];
             }
             ?>
@@ -74,11 +73,11 @@
 <div class="row">
     <div class="col-sm-6">
         <div class="form-group">
-        <?php 
-            if(isset($state_id) && !empty($state_id)){
+            <?php
+            if (isset($state_id) && !empty($state_id)) {
 
                 $city = App\City::where('status', 1)->where('state_id', $state_id)->pluck('name', 'id');
-            }else{
+            } else {
                 $city = [];
             }
             ?>
@@ -87,9 +86,62 @@
             {!! Form::select('city_id',$city,null,['class'=>'form-control show-tick', 'id' => 'city_id']) !!}
         </div>
     </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            {!! Form::label('total_vacancy','Total Vacancy Available') !!}
+            {!! Form::text('total_vacancy',null,['class'=>'form-control', 'id' => 'total_vacancy']) !!}
+        </div>
+    </div>
 
 </div>
 
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            {!! Form::label('Salary') !!}
+            {!! Form::select('is_range',array('0' => 'Single Value', '1' => 'Range'),null,['class'=>'form-control show-tick', 'id' => 'is_range']) !!}
+        </div>
+    </div>
+    <div class="col-sm-6 salary_value_single">
+        <div class="form-group">
+            {!! Form::label('value','Salary Amount') !!}
+            {!! Form::text('value',null,['class'=>'form-control', 'id' => 'value']) !!}
+        </div>
+    </div>
+
+</div>
+
+<div class="row salary_value_range">
+    <div class="col-sm-6">
+        <div class="form-group">
+            {!! Form::label('min_value','Salary Min. Amount') !!}
+            {!! Form::text('min_value',null,['class'=>'form-control', 'id' => 'min_value']) !!}
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            {!! Form::label('max_value','Salary Max. Amount') !!}
+            {!! Form::text('max_value',null,['class'=>'form-control', 'id' => 'max_value']) !!}
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <?php $currency = App\Currency::where('status', 1)->pluck('name', 'id'); ?>
+            {!! Form::label('Currency') !!}
+            {!! Form::select('currency_id',$currency,null,['class'=>'form-control show-tick', 'id' => 'currency_id']) !!}
+        </div>
+    </div>
+    <div class="col-sm-6">
+    <div class="form-group">
+            <?php $salary_period = App\SalaryPeriod::where('status', 1)->pluck('name', 'id'); ?>
+            {!! Form::label('Salary Period') !!}
+            {!! Form::select('salary_period_id',$salary_period,null,['class'=>'form-control show-tick', 'id' => 'salary_period_id']) !!}
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-sm-6">
         <div class="form-group">

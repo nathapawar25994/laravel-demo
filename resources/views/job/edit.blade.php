@@ -57,17 +57,17 @@
 @stop
 @section('footer_script_init')
 <script>
-$(".datepicker-default").datepicker({
-                dateFormat: "yy-mm-dd",
-				autoclose: true,
-				todayHighlight: true,
-			});
+    $(".datepicker-default").datepicker({
+        dateFormat: "yy-mm-dd",
+        autoclose: true,
+        todayHighlight: true,
+    });
 </script>
 
 <script src="{{ url('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
 <script src="{{ url('vendor/unisharp/laravel-ckeditor/adapters/jquery.js') }}"></script>
 <script>
-    CKEDITOR.replace( 'description' );
+    CKEDITOR.replace('description');
 </script>
 
 <script>
@@ -80,6 +80,20 @@ $(".datepicker-default").datepicker({
         // if(state_id != null && state_id != undefined && state_id != "" ){
         //     appendCityOptions(state_id);
         // }
+        var is_range_value = $("#is_range").find(":selected").val();
+        if(is_range_value == 1){
+            $(".salary_value_single").hide();
+            $("#value").val("");
+            $(".salary_value_range").show();
+
+        }else{
+
+            $(".salary_value_range").hide();
+            $("#min_value").val("");
+            $("#max_value").val("");
+            $(".salary_value_single").show();
+
+        }
     });
 
     $(document).on('change', '#country_id', function(e) {
@@ -144,6 +158,24 @@ $(".datepicker-default").datepicker({
 
             })
     }
-    </script>
+    $(document).on('change', '#is_range', function(e) {
+        e.preventDefault();
+        var is_range_value = $(this).find(":selected").val();
+        if (is_range_value == 1) {
+            $(".salary_value_single").hide();
+            $("#value").val("");
+            $(".salary_value_range").show();
+
+        } else {
+
+            $(".salary_value_range").hide();
+            $("#min_value").val("");
+            $("#max_value").val("");
+            $(".salary_value_single").show();
+
+        }
+
+    });
+</script>
 
 @stop

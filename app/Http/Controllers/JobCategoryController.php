@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\JobCategory;
 use Illuminate\Http\Request;
+use App\Job;
 
 class JobCategoryController extends Controller
 {
@@ -44,7 +45,13 @@ class JobCategoryController extends Controller
 
     public function dashboard()
     {
-        return view('dashboard');
+
+        $job_list = Job::where('status', 1)->paginate(10);
+        $count = $job_list->count();
+
+        // return view('job.index', compact('job_list', 'count'));
+
+        return view('dashboard', compact('job_list', 'count'));
     }
     
     /**

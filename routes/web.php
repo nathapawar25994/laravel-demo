@@ -17,7 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', 'JobCategoryController@dashboard')->name('dashboard');
+// Route::get('/dashboard', 'JobApplicationController@dashboard')->name('dashboard');
+Route::get('/dashboard', 'JobController@index')->name('dashboard');
 
 
 // //User 
@@ -141,7 +142,7 @@ Route::group(['prefix' => 'refered_from', 'middleware' => ['auth']], function ()
     Route::post('/{id}/delete', 'ReferedFromController@delete');
 });
 
-//refered from
+//country
 Route::group(['prefix' => 'country', 'middleware' => ['auth']], function () {
     Route::get('/', 'CountryController@index');
     Route::get('/create', 'CountryController@create');
@@ -183,4 +184,35 @@ Route::group(['prefix' => 'job', 'middleware' => ['auth']], function () {
     Route::get('/{id}/edit', 'JobController@edit');
     Route::post('/{id}/update', 'JobController@update');
     Route::post('/{id}/delete', 'JobController@delete');
+});
+
+//currency
+Route::group(['prefix' => 'currency', 'middleware' => ['auth']], function () {
+    Route::get('/', 'CurrencyController@index');
+    Route::get('/create', 'CurrencyController@create');
+    Route::post('/', 'CurrencyController@store');
+    Route::get('/{id}/edit', 'CurrencyController@edit');
+    Route::post('/{id}/update', 'CurrencyController@update');
+    Route::post('/{id}/delete', 'CurrencyController@delete');
+});
+
+//salary_period
+Route::group(['prefix' => 'salary_period', 'middleware' => ['auth']], function () {
+    Route::get('/', 'SalaryPeriodController@index');
+    Route::get('/create', 'SalaryPeriodController@create');
+    Route::post('/', 'SalaryPeriodController@store');
+    Route::get('/{id}/edit', 'SalaryPeriodController@edit');
+    Route::post('/{id}/update', 'SalaryPeriodController@update');
+    Route::post('/{id}/delete', 'SalaryPeriodController@delete');
+});
+
+
+//hiring_organization
+Route::group(['prefix' => 'hiring_organization', 'middleware' => ['auth']], function () {
+    Route::get('/', 'HiringOrganizationController@index');
+    Route::get('/create', 'HiringOrganizationController@create');
+    Route::post('/', 'HiringOrganizationController@store');
+    Route::get('/{id}/edit', 'HiringOrganizationController@edit');
+    Route::post('/{id}/update', 'HiringOrganizationController@update');
+    Route::post('/{id}/delete', 'HiringOrganizationController@delete');
 });

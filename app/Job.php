@@ -14,6 +14,8 @@ class Job extends Model
         'title',
         'slug',
         'sub_title',
+        'hiring_organization_id',
+        'job_base_salary_id',
         'description',
         'total_vacancy',
         'last_date_to_submit',
