@@ -154,7 +154,6 @@
                         </ul>
 
                     </li>
-                    
                     <li>
                         <a href="#" class="waves-effect dropdown-btn"><i class="fa fa-file fa-fw" aria-hidden="true"></i>Currency</a>
 
