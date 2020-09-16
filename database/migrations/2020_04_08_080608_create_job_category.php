@@ -18,7 +18,7 @@ class CreateJobCategory extends Migration
             $table->string('name');
             $table->string('description', 3000)->nullable();
             $table->boolean('status')->default(1);
-            $table->integer('created_by')->comment('User ID');
+            $table->integer('created_by')->comment('User ID')->nullable();
             $table->timestamps();
         });
     }

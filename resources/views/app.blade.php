@@ -127,62 +127,6 @@
                     </li>
 
                     <li>
-                        <a href="#" class="waves-effect dropdown-btn"><i class="fa fa-file fa-fw" aria-hidden="true"></i>Job</a>
-
-                        <ul class="dropdown-container" id="side-menu">
-                            <li>
-                                <a href="{{ action('JobController@index') }}" class="waves-effect">Job List</a>
-                            </li>
-                            <li>
-                                <a href="{{ action('JobController@create') }}" class="waves-effect">Add Job</a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-                    <li>
-                        <a href="#" class="waves-effect dropdown-btn"><i class="fa fa-file fa-fw" aria-hidden="true"></i>Hiring Organization</a>
-
-                        <ul class="dropdown-container" id="side-menu">
-                            <li>
-                                <a href="{{ action('HiringOrganizationController@index') }}" class="waves-effect">Hiring Organization List</a>
-                            </li>
-                            <li>
-                                <a href="{{ action('HiringOrganizationController@create') }}" class="waves-effect">Add Hiring Organization</a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-                    <li>
-                        <a href="#" class="waves-effect dropdown-btn"><i class="fa fa-file fa-fw" aria-hidden="true"></i>Currency</a>
-
-                        <ul class="dropdown-container" id="side-menu">
-                            <li>
-                                <a href="{{ action('CurrencyController@index') }}" class="waves-effect">Currency List</a>
-                            </li>
-                            <li>
-                                <a href="{{ action('CurrencyController@create') }}" class="waves-effect">Add Currency</a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-                    <li>
-                        <a href="#" class="waves-effect dropdown-btn"><i class="fa fa-file fa-fw" aria-hidden="true"></i>Salary Period</a>
-
-                        <ul class="dropdown-container" id="side-menu">
-                            <li>
-                                <a href="{{ action('SalaryPeriodController@index') }}" class="waves-effect">Salary Period List</a>
-                            </li>
-                            <li>
-                                <a href="{{ action('SalaryPeriodController@create') }}" class="waves-effect">Add Salary Period</a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-                    <li>
                         <a href="#" class="waves-effect dropdown-btn"><i class="fa fa-file fa-fw" aria-hidden="true"></i>Job Category</a>
 
                         <ul class="dropdown-container" id="side-menu">
@@ -197,64 +141,6 @@
 
                     </li>
 
-                    <li>
-                        <a href="#" class="waves-effect dropdown-btn"><i class="fa fa-file fa-fw" aria-hidden="true"></i>Job Type</a>
-
-                        <ul class="dropdown-container" id="side-menu">
-                            <li>
-                                <a href="{{ action('JobTypeController@index') }}" class="waves-effect">Job Type List</a>
-                            </li>
-                            <li>
-                                <a href="{{ action('JobTypeController@create') }}" class="waves-effect">Add Job Type</a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-
-                    <li>
-                        <a href="#" class="waves-effect dropdown-btn"><i class="fa fa-file fa-fw" aria-hidden="true"></i>Refered From</a>
-
-                        <ul class="dropdown-container" id="side-menu">
-                            <li>
-                                <a href="{{ action('ReferedFromController@index') }}" class="waves-effect">Refered From List</a>
-                            </li>
-                            <li>
-                                <a href="{{ action('ReferedFromController@create') }}" class="waves-effect">Add Refered From</a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-
-
-                    <li>
-                        <a href="#" class="waves-effect dropdown-btn"><i class="fa fa-file fa-fw" aria-hidden="true"></i>Country/State/City</a>
-
-                        <ul class="dropdown-container" id="side-menu">
-                            <li>
-                                <a href="{{ action('CountryController@index') }}" class="waves-effect">Country List</a>
-                            </li>
-                            <li>
-                                <a href="{{ action('CountryController@create') }}" class="waves-effect">Add Country</a>
-                            </li>
-
-                            <li>
-                                <a href="{{ action('StateController@index') }}" class="waves-effect">State List</a>
-                            </li>
-                            <li>
-                                <a href="{{ action('StateController@create') }}" class="waves-effect">Add State</a>
-                            </li>
-
-                            <li>
-                                <a href="{{ action('CityController@index') }}" class="waves-effect">City List</a>
-                            </li>
-                            <li>
-                                <a href="{{ action('CityController@create') }}" class="waves-effect">Add City</a>
-                            </li>
-                        </ul>
-
-                    </li>
                     <!-- <li>
                         <a href="#" class="waves-effect dropdown-btn"><i class="fa fa-gear fa-spin fa-fw" aria-hidden="true"></i>Settings</a>
 
@@ -268,18 +154,7 @@
                             <li>
                                 <a href="{{ route('permissions.index') }}" class="waves-effect">Permissions</a>
                             </li>
-                            <li>
-                                <a href="{{ action('ProjectTypeController@index') }}" class="waves-effect">List Of Project Type</a>
-                            </li>
-                            <li>
-                                <a href="{{ action('TechnologiesController@index') }}" class="waves-effect">List of technologies</a>
-                            </li>
-                            <li>
-                                <a href="{{ action('DatabaseController@index') }}" class="waves-effect">List of Database</a>
-                            </li>
-                            <li>
-                                <a href="{{ action('ServerController@index') }}" class="waves-effect">List of Server</a>
-                            </li>
+
                         </ul>
 
                     </li> -->
@@ -294,7 +169,7 @@
         <!-- Page Content -->
         <!-- ============================================================== -->
         @yield('content')
-        <footer class="footer text-center"> 2020 &copy; <a href="http://vishleshak.io" target="_blank">Vishleshak</a>. </footer>
+        <footer class="footer text-center"></footer>
 
         <!-- /#page-wrapper -->
     </div>
