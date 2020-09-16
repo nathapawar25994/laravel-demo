@@ -13,7 +13,7 @@
     </style>
 
     <link rel="icon" type="image/png" sizes="16x16" href="{{ URL::asset('assets/login-theme/Login_v16/images/fav_icon.png') }}">
-    <title>On Call Staffing Solutions</title>
+    <title>Demo</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ URL::asset('assets/theme/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
     <!-- Menu CSS -->
